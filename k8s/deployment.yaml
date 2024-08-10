@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tictactoe
+  labels:
+    app: tictac
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tictac
+  template:
+    metadata:
+      labels:
+        app: tictac
+    spec:
+      containers:
+      - name: tictactoe-container  
+        image: akhilyechuri064/tic_tac_toe:latest
+        ports:
+        - containerPort: 80  # Expose the port on which your application is running
+
