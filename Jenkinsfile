@@ -17,8 +17,8 @@ pipeline {
         stage('Pushing Image to Docker Hub') {
             steps {
                 script {
-                    withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-                        sh 'docker login -u akhilyechuri064 -p ${dockerhubpwd}'
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerpasswd', usernameVariable: 'dockerusername')]) {
+                    sh 'echo ${dockerpasswd} | docker login -u ${dockerusername} --password-stdin'
                     }
                     sh 'docker tag akhilyechuri064/tic_tac_toe akhilyechuri064/tic_tac_toe:latest'
                     sh 'docker push akhilyechuri064/tic_tac_toe:latest'
