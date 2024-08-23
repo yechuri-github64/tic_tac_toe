@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: tictactoe-container  
-        image: akhilyechuri064/tic_tac_toe:latest
+        image: akhilyechuri064/tic_tac_toe:14
         ports:
         - containerPort: 80  # Expose the port on which your application is running
 
